@@ -1,0 +1,202 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cheatsheet
+% LaTeX Template
+% Version 1.0 (12/12/15)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Michael Müller (https://github.com/cmichi/latex-template-collection) with
+% extensive modifications by Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% The MIT License (see included LICENSE file)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Modified by Ted Weber
+%----------------------------------------------------------------------------------------
+%   PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[11pt]{scrartcl} % 11pt font size
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[margin=0pt, landscape]{geometry} % Page margins and orientation
+\usepackage{graphicx} % Required for including images
+\usepackage{color} % Required for color customization
+\definecolor{mygray}{gray}{.75} % Custom color
+\usepackage{url} % Required for the \url command to easily display URLs
+\usepackage[ % This block contains information used to annotate the PDF
+colorlinks=false, 
+pdftitle={Cheatsheet}, 
+pdfauthor={John Smith}, 
+pdfsubject={Compilation of useful shortcuts}, 
+pdfkeywords={Random Software, Cheatsheet}
+]{hyperref}
+\setlength{\unitlength}{1mm} % Set the length that numerical units are measured in
+\setlength{\parindent}{0pt} % Stop paragraph indentation
+\renewcommand{\dots}{\ \dotfill{}\ } % Fills in the right amount of dots
+\newcommand{\command}[2]{\textbf{#1}~\dotfill{}~#2\\} % Custom command for adding a shortcut
+\newcommand{\sectiontitle}[1]{\large{\textbf{#1}} \ \\} % Custom command for subsection titles
+%----------------------------------------------------------------------------------------
+\begin{document}
+\begin{picture}(297,210) % Create a container for the page content
+%----------------------------------------------------------------------------------------
+%   TITLE SECTION 
+%----------------------------------------------------------------------------------------
+\put(10,200){ % Position on the page to put the title
+\begin{minipage}[t]{210mm} % The size and alignment of the title
+\section*{Bash Cheatsheet} % Title
+\end{minipage}
+}
+%----------------------------------------------------------------------------------------
+%   FIRST COLUMN SPECIFICATION
+%----------------------------------------------------------------------------------------
+\put(10,180){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house text
+
+%----------------------------------------------------------------------------------------
+%   HEADING ONE
+%----------------------------------------------------------------------------------------
+\sectiontitle{Directory Commands}
+           
+\command{cd}{Change current working directory.}
+\command{cd -}{Return to prev working directory.}
+\command{..}{Represents parent of current directory.}
+\command{.}{Represents current working directory.}
+\command{pwd}{Print name of current/working directory.}
+\command{mkdir}{Make a new directory.}
+\command{rmdir}{Remove empty directory.}
+\command{rm}{Remove file or directory.}
+%----------------------------------------------------------------------------------------
+%   HEADING TWO
+%----------------------------------------------------------------------------------------               
+            
+\sectiontitle{File Commands}
+
+\command{\textbf{ls}}{List information about files.}
+\command{ls -la}{List detailed information about all files.}
+\command{touch}{Change file timestamps.}
+\command{mv}{Move a file OR rename a file.}
+\command{cat}{Concatenate files and print to stdout.}
+\command{more}{View file one page at a time.}
+\command{less}{Enhanced version of \textbf{more} command.}
+\command{which}{Find where program is located.}
+\command{whereis}{Like \textbf{which}, but broader results.}
+\command{whatis}{Get short description of a program.}
+\command{xdg-open}{Open file with default program.}
+%----------------------------------------------------------------------------------------
+%   HEADING THREE
+%----------------------------------------------------------------------------------------   
+
+\sectiontitle{System Commands}
+
+\command{\textasciicircum D}{End process (more graceful than \textasciicircum C).}
+\command{\textasciicircum C}{Kill the current process.}
+\command{top}{Display system processes.}
+\command{[program] \textgreater \textbf{ [file]}}{Redirect program output to file (overwrites).}
+\command{[program] \textgreater\textgreater [file]}{Append output to file.}
+\command{[program1] \textbar\textbf{ [program2]}}{Make output from program1 input to program2}
+
+
+\end{minipage} % End the first column of text
+} % End the first division of the page
+%----------------------------------------------------------------------------------------
+%   SECOND COLUMN SPECIFICATION 
+%----------------------------------------------------------------------------------------
+\put(105,180){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house text
+%----------------------------------------------------------------------------------------
+%   HEADING FOUR
+%----------------------------------------------------------------------------------------
+
+\sectiontitle{Navigation}
+
+\command{<tab>}{Auto-completes user input.}
+\command{<up/down arrow>}{Cycle through command history.}
+\command{\textasciicircum R}{Reverse search through command history.}
+\command{clear}{Clears terminal view (also \textasciicircum l)}
+\command{apropos}{Search for commands whose description contains a certain term.}
+\command{!!}{Run immediately previous command.}
+\command{![str]}{Run last command starting with str.}
+\command{[cmd1] ; [cmd2]}{Run cmd1, then cmd2.}
+\command{man}{Access the system manual pages.}
+
+%----------------------------------------------------------------------------------------
+%   HEADING FIVE
+%----------------------------------------------------------------------------------------
+\sectiontitle{Misc Commands}
+
+\command{echo}{Displays a line of text}
+\command{history}{Lists all previous commands}
+
+
+%----------------------------------------------------------------------------------------
+%   HEADING SIX
+%----------------------------------------------------------------------------------------
+\sectiontitle{Legend}
+
+\command{\textasciicircum}{Abbreviation for Ctrl}
+\command{\textless keyboard\_ button\textgreater}{Denotes button on keyboard}
+\command{[user\_ input]}{Denotes user input of a given kind}
+\command{cwd}{Stands for Current Working Directory}
+%Use framebox to hold legend?
+
+%----------------------------------------------------------------------------------------
+\end{minipage} % End the second column of text
+} % End the second division of the page
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%   THIRD COLUMN SPECIFICATION 
+%----------------------------------------------------------------------------------------
+\put(200,180){ % Divide the page
+\begin{minipage}[t]{85mm} % Create a box to house tex
+%----------------------------------------------------------------------------------------
+%   IMPORTANT FILES
+%----------------------------------------------------------------------------------------
+\sectiontitle{Example .bashrc files}
+\begin{itemize}
+    \item \url{https://crunchbang.org/forums/viewtopic.php?id=1093}
+    \item \url{http://tldp.org/LDP/abs/html/sample-bashrc.html}
+\end{itemize}
+
+\vspace{\baselineskip} % Whitespace before the next section
+
+%----------------------------------------------------------------------------------------
+%   LINKS AND INFORMATION
+%----------------------------------------------------------------------------------------
+\sectiontitle{Other Links and Information}
+\textbf{\textit{Bash Scripting:}} 
+\begin{itemize}
+    \item \url{http://ryanstutorials.net/bash-scripting-tutorial/bash-script.php}
+    \item \url{http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html}
+\end{itemize}
+
+\textbf{\textit{Shells:}} 
+\begin{itemize}
+    \item \url{https://en.wikipedia.org/wiki/Shell_(computing)}
+    \item \url{https://www.ibm.com/developerworks/library/l-linux-shells/}
+\end{itemize}
+
+
+%----------------------------------------------------------------------------------------
+%   FOOTNOTE
+%----------------------------------------------------------------------------------------
+\vspace{\baselineskip}
+\linethickness{0.5mm} % Thickness of the footer line
+{\color{mygray}\line(1,0){30}} % Print the line with a custom color
+
+\footnotesize{
+Created by John Smith, 2015\\ 
+Modified by S. Bowen, S. Gunderson, T. Weber, 2017\\
+\url{http://johnsmith.com/}\\
+                
+Released under the MIT license.
+}
+%----------------------------------------------------------------------------------------
+\end{minipage} % End the third column of text
+} % End the third division of the page
+\end{picture} % End the container for the entire page
+%----------------------------------------------------------------------------------------
+\end{document}

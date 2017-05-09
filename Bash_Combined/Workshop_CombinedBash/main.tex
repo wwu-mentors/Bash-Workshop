@@ -61,12 +61,9 @@
 \end{versionhistory}
                                                     %Workshop 1
 \chapter{The Basics}
-\begin{center}
-\framebox{Download this PDF at \url{www.com}}
-\end{center}
 
 \section{Introduction}
-In this workshop we will run through the basics of using $bash$ or some other Unix-like command line environment. $bash$ is the most popular of the different $shells$ (it is then default on most Linux distros and OSX) but most things we discuss will be universal to all shells for Unix-like computers.\footnote{For example Linux, OSX, FreeBSD. Also Cygwin provides a Unix-like environment for Windows computers.} 
+In this workshop we will run through the basics of using $bash$ or some other Unix-like command line environment. Bash is one of many different  $shells$ (it is the default on most Linux distros and OSX), but most things we discuss will be universal to all shells for Unix-like computers.\footnote{For example Linux, OSX, FreeBSD. Also Cygwin provides a Unix-like environment for Windows computers.} 
 
 \section{What is a shell?}
 In general, a shell is a user interface for accessing the operating system's services. This includes command line interfaces (like \textit{bash}), as well as graphical shells that provide graphical user interface built on top of a windowing system.\footnote{More information about shells here \url{https://en.wikipedia.org/wiki/Shell_(computing)} and the history of shells here \url{https://www.ibm.com/developerworks/library/l-linux-shells/}} 
@@ -78,7 +75,7 @@ In general, a shell is a user interface for accessing the operating system's ser
 \end{figure}
 
 \section{Getting started}
-We will be focusing on using the command line interface, \textit{bash} is particular. This will include how to manipulate files and directories, use the built-in manual pages, compile/execute programs, and build your command repertoire in general. Let's start by opening the terminal:\footnote{Most Linux desktop environments use this keyboard shortcut by default, but it does vary. If this shortcut doesn't work you can use the search functionality in your desktop environment.}
+We will be focusing on using a command line interface shell, \textit{bash} in particular. We will discuss how to manipulate files and directories, use the built-in manual pages, compile/execute programs, and build your command repertoire in general. Let's start by opening the terminal:\footnote{Most Linux desktop environments use this keyboard shortcut by default, but it does vary. If this shortcut doesn't work you can use the search functionality in your desktop environment and open the shell from there.}
 
 \commandline{ctrl + alt + t}
 
@@ -87,14 +84,14 @@ We will be focusing on using the command line interface, \textit{bash} is partic
 
 \section{Running a Command}
 The general form of any command, for the most part, is as follows:
-\commandline{\$ commandname -arg1 ... \ \\-\\-longerargs ... input1 input2 ...}
+\commandline{\$ command\_name -arg1 ... \ \\-\\-longerargs ... input1 input2 ...}
 \begin{itemize}
-    \item \textbf{\$} is what's known as your command \textit{prompt}, and it is display on the console after every command has finished executing.
-    \item \textbf{commandname} refers to the name of the user command.
+    \item \textbf{\$} is what's known as your command \textit{prompt}, and it is displayed on the console after every command has finished executing.
+    \item \textbf{command\_name} refers to the name of the user command.
     \item \textbf{-arg} is an example of a \textit{short-option}, which is a single dash followed by a single character.
-    \item \textbf{\texttt{-{}-}longerargs} is an example of a multi-character \textit{long-option}, and these are preceded by two dashed. \textit{These additional long and short-options are just extra features for the given user command.}
+    \item \textbf{\texttt{-{}-}longerargs} is an example of a multi-character \textit{long-option}, and these are preceded by two dashed. \textit{Long and short-options are used inform the user command program to perform or not to perform additional tasks.}
     \item \textbf{input1} and \textbf{input2} represent additional arguments, or parameters, that the user command may allow.
-    \item The ``\dots" above are used to denote the fact that we can have multiple arguments and parameters for a single command.\footnote{In actuality every command has a finite number of arguments it understands and you normally use a small subset of those. There might also be a limit on the number of inputs.}
+    \item The ``\dots" above are used to denote the fact that we can have multiple arguments and options for a single user command.\footnote{In actuality every command has a finite number of options it understands and you normally use a small subset of those. There might also be a limit on the number of arguments allowed.}
 \end{itemize}
    
 Lets look at an example:
@@ -130,13 +127,13 @@ A user's \textit{home directory} is the default current working directory when y
 	Lets explore the concept of home by running the following commands:
 	\commandline{pwd}
 	\commandline{echo $\sim$ }
-	What did you find? Note that ``$\sim$", the tilde symbol which is located to the left of the 1 on your keyboard. Remember ``$\sim$" since it will be used a lot as a shortcut to your home directory.
+	What did you find? Note that ``$\sim$", the tilde symbol, is normally located near the top-left of your keyboard. Remember ``$\sim$", since it will be used a lot as a shortcut to your home directory.
 \end{ex}
 
 \subsection{Listing the contents of a Directory}
 To \textbf{l}i\textbf{s}t all the files in your current working directory enter:
 	\commandline{ls}
-	Most shell environments can be set up (and yours might already be) so that directories are printed with a different colour than files and directories shortly. We can also specify to \textbf{ls} what directory we want to list the contents of with the following generic form:
+	We can also specify to \textbf{ls} what directory we want to list the contents of with the following generic form:
   	\commandline{ls dirname}
 For example:
 	\commandline{ls $\sim$}
@@ -174,10 +171,10 @@ There is a lot more information here! So what does it all mean? Lets use the fil
     \item The name of the file.
 \end{enumerate}
 
-We won't go into detail on the specific meaning of these fields in this workshop, but there is a link in the footnotes for more information.\footnote{Advanced Bash workshop: ADD LINK TO BASH II WORKSHOP ON GITHUB HERE!!!}
+We won't go into detail on the specific meaning of these fields in this workshop, but there is a link in the footnotes for more information.\footnote{Advanced bash workshop: \url{https://github.com/wwu-mentors/bash/tree/master/Bash_II}}
 	
 \subsection{Changing your Current Working Directory}
-We have talked a lot about current directories changing but have yet to figure out how to do so. We can \textbf{c}hange the \textbf{d}irectory with \textbf{cd} which has the following form:
+ Your \textit{current working directory} is the directory your process is currently associated with (i.e. the directory your are currently operating inside of). We can \textbf{c}hange the \textbf{d}irectory with \textbf{cd} which has the following form:
 
 \commandline{cd dirToChangeTo}
 For example we can run:
@@ -190,21 +187,24 @@ To change back to our previous working directory with this shortcut:
 \commandline{cd -}
 To change to our home directory regardless of where we are we can simply type:
 \commandline{cd}
-Thus the default to \textbf{cd} is to change to the users home directory. \\
+The default directory \textbf{cd} will change to is the user's home directory. \\
 Lastly, to move back one directory in the directory tree enter this command:
 \commandline{cd ../}
 
 \begin{ex}
-	Use \textbf{cd}, \textbf{pwd}, \textbf{ls} to explore the directory tree a bit. Becoming familiar and quick with this is key to become efficient with the command line since \textbf{cd} and \textbf{ls} are easily the two most used commands.
+	Use \textbf{cd}, \textbf{pwd}, \textbf{ls} to explore the directory tree a bit. Becoming familiar and quick with these commands is essential to becoming efficient with the command line. \textbf{cd} and \textbf{ls} are easily the two most used commands in Unix-like shells.
 \end{ex}
 
 \subsection{Relative vs Absolute Path Names}
-We need to learn one more important concept about UNIX files and directories before moving on to learning a bunch of commands and how we can use them to help us program. \\
-Suppose we are in the directory /home in our directory tree figure and we wanted to list the contents of the jason directory. We can do this in two ways:
+We need to learn one more important concept about UNIX files and directories before moving on. \\
+Suppose we are in the directory \textit{/home} in our directory tree and we wanted to list the contents of the jason directory. We can do this in two ways:
+\newpage
 \commandline{ls jason}
-or
+\begin{center}
+    \textbf{\textit{or}}
+\end{center}
 \commandline{ls /home/jason}
-In the later we used the \textbf{absolute path name} which is the name of the file or directory prefixed by the path from ``/" to it. When we use absolute path names it no longer matters what are current working directory is e.g. we could have run the second command from any directory. In contrast, the first command will only list the contents of /home/jason if are current working directory is /home. This is because jason is a \textbf{relative path name} since we assume the path begins in our current working directory. Relative path names allows the user to remember and type less but require careful consideration of what your working directory currently is. 
+In the latter we used the \textbf{absolute path name} which is the name of the file or directory prefixed by the path from ``/" to it. When we use absolute path names it no longer matters what are current working directory is (e.g. we could have run the second command from any directory). In contrast, the first command will only list the contents of /home/jason if are current working directory is /home. This is because jason is a \textbf{relative path name} since we assume the path begins in our current working directory. Relative path names allows the user to remember and type less but require careful consideration of what your working directory currently is. 
 
 \subsection{Special Directory Entries and Hidden Files}
 
@@ -214,9 +214,9 @@ Hidden files and directories are generally configuration files that are not show
 	\item ``.": This represents the current directory and is an actual entry in every directory.
 	\item ``..": This represents the parent of the current directory and is also an actual entry in the current directory.
 \end{itemize}
-
+\vspace{0.3cm}
 \begin{ex}
-	Navigate to the directory \textit{dirs} in the demo files you downloaded from GitHub. Now enter the following commands 
+	Try the following commands:
 	\commandline{ls -a}
 	\commandline{ls -a .}
 To view all files in your home directory:
@@ -229,15 +229,16 @@ Does the output make sense? As a challenge question what will the following comm
 \section{Grab the Demo Files from GitHub!}
 Take a moment to download a few files for this workshop from our GitHub. Each lab machine has the version control system Git installed, so if you enter the following command you will download our demo files into your current working directory.
 
-\commandline{git clone [put the link here...]}
-\commandline{cd demo}
+\commandline{git clone https://github.com/wwu-mentors/bash.git}
+Then enter the following command to change your current working directory to the directory pertaining to our demo.
+\commandline{cd bash/Bash\_Combined/demo}
+The files you download from GitHub also include a couple .pdf documents with the write-ups for previous bash workshops run by the CS mentors. Take a look at those files if you are curious!
 
 \subsection{Making a Directory}
 Now that we understand the directory tree and how to move around it we are ready to learn how to add to it. The general form of the command to \textbf{m}a\textbf{k}e a \textbf{dir}ectory is:
 \commandline{mkdir newdirname1 newdirname2 ...}
 \begin{ex}
-	Run the following sequence, before the second and third call to \textbf{ls} think about what you would expect to see:
-\commandline{clear}
+	Run the following sequence of commands. Before the second and third calls to \textbf{ls} think about what you would expect to see:
 \commandline{ls}
 \commandline{mkdir FirstDir SecondDir}
 \commandline{ls}
@@ -290,12 +291,12 @@ When we enter tab at the prompt it will try to finish whatever we are currently 
 \commandline{ls file1}
 If instead we had both ``file1" and ``file2" then when we pressed tab it would have only filled in this much:
 \commandline{ls file}
-This is because it does not know if you want a 1 or a 2 to follow next. To see all option press tab twice and the list of all options will be displayed on the screen.\\
+This is because it does not know if you want a 1 or a 2 to follow next. To see all option press tab twice and the list of all options will be displayed on the screen. You can test out this functionality in the directory \textit{demo/dirs}.\\
 
 \begin{ex}
-    Tab completion can also be used to complete program names as well.
+    Tab completion can also be used to complete program names.
     \begin{itemize} 
-        \item Type \commandline{py}
+        \item Type \commandline{pyt}
         \item Use tab completion to complete the command ``python" and launch an interactive python shell.
         \item Exit the python shell by typing \commandline{exit()}
     \end{itemize}
@@ -310,65 +311,24 @@ Lets give it a try by navigating to the directory \textit{demo/dirs} and typing 
 You should see the extended file listings for all three files!
 
 \section{Editing Files}
- In Computer Science courses we will use files for lots of reasons:
+ In Computer Science courses we will use files for a lot of reasons:
 \begin{itemize}
-	\item Your Program source code: Whether you are taking a class in Python, Java, C, or some other language you will need a file that is your program.
+	\item Your program source code: Whether you are taking a class that uses Python, Java, C, or some other language, you will need a file that is your program.
 	\item Programs themselves: In Unix, all of the programs, the ones you write and the ones that are installed, are themselves a file. For example type the following commands:
 		\commandline{which ls}
 		\commandline{which python}
 		\commandline{which which}
-	\textbf{which} is a command that tells you where the program is in the computer. It is especially useful in the case of python since most computers have multiple versions of python and which can tell you which python you use when you type python.
-	\item Plain text files: For example, input to or output from your program will be saved in text files. 
+	\textbf{which} is a command that tells you where the program is located on the computer. 
+	\item Plain text files: For example, input to or output from your program will generally be stored in text files. 
 \end{itemize}
 
-% \subsection{Nano}
-% \textbf{nano} is a basic command line editor that will come on almost any Unix computer you ever use. It is not the best for writing programs in but it is simple to learn. The following is generic way to make a new file with nano:
-% \commandline{nano newfilename}
-% It will open the editor full screen in your terminal. On the bottom you will see some of the commands you can use where the carrot (this symbol `` \^{}  ") represents the control key. You can enter text by just typing.
-% \begin{ex} 
-% 	In this exercise we will make a file with nano. \\
-% 	\begin{enumerate} 
-% 		\item If you are not already in FirstDir then change your directory to FirstDir. Remember you can check where you are with \textbf{pwd} and you can use \textbf{cd} to get to FirstDir.
-% 		\item Now make a file named myfile using the following command:
-% 			\commandline{nano myfile}
-% 		\item Type the following line:
-% 			\exampleout{I am making my first file in nano!}
-% 		\item Saving: Notice on the bottom of the screen it says ``WriteOut" with a ``\^{}O" next to it? That is how we will save our file. Save by first hitting Ctrl+o and see that it prompts you for the file name on the bottom of the screen. Now hit enter. We should now see a new message on the bottom of the screen saying ``Wrote 1 line".
-% 		\item Exiting: Now that we have saved some text lets leave by hitting Cntr+x. Now we are back on the command line.
-% 		\item Use \textbf{ls} to check if our file is in FirstDir. 
-% 		\item Check the contents by using the \textbf{cat} command as follows ( we will learn more about reading text files in the next section):
-% 			\commandline{cat myfile}
-% 		\item Edit the file to have the following line added on the next line of the file
-% 			\exampleout{I am editing my file to have 2 lines}
-% 			by entering
-% 			\commandline{nano myfile}
-% 		\item Now add a third line of whatever you like.
-% 		\item Now save and exit. Also use \textbf{cat} again to see your changes.
-% 	\end{enumerate}
-% \end{ex}
-% That is about all you need to know to make some simple files using nano.
 
-% \subsection{Vim}
-% Another editor that will always be present in a Unix environment is the program \textbf{vi} or it's big brother \textbf{vim} which stands for \textbf{v}i \textbf{im}proved. \textbf{vi} and \textbf{vim} are much more powerful than nano but have a much steeper learning curve. In turn we will have a dedicated workshop on how to use them. For now we will give the bare minimum. You can edit a file called ``myvimfile", or make one if that file does not already exist, with the following command:
-% \commandline{vim myvimfile}
-% This will open up a full screen editor similar to what happened with nano. You will notice tilde characters along the left side which signify that those lines are not part of your text file. There is also a bar along the bottom that will tell you the name of your file along with it's length (or in the case of a new file it will say ``[New File]"). We are currently in a Command Mode which means that what we type will not be entered on the text file but instead give commands to Vim. There are many things we can do in this mode but in this workshop we will only learn how to type. Hit the i key to enter \textbf{I}nsert Mode. You can now type exactly like you would in any other text editor. \\
-% First hit i and notice the bottom line change to have the following on the left side:
-% \exampleout{--  INSERT  --}
-% This will be there whenever we are in Insert Mode. Enter some text such as the following:
-% \commandline{ Here is a line of text that I entered in Vim}
-% To leave Insert Mode hit the Esc key. Notice that the bottom has changed to be blank on the left, this means that we left Insert Mode. Now to save, or \textbf{w}rite, our changes and leave, or \textbf{q}uit, Vim enter the following:
-% \commandline{:wq}
-% After you hit enter you should be back at the command line with your new file in your current working directory.
-% \begin{ex}
-%     This assignment is too long to do during this workshop but when you get home enter the following to beginning a tutorial of how to use Vim:
-%     \commandline{vimtutor}
-%     This tutorial last about 20 minutes and gives you enough to be able to start editing files with Vim using some of vim's power. If you are interested in learning more you should also visit our Vim workshop later this quarter.  
-% \end{ex}
-
-
-\subsection{Others}
-There are several pure command line editors like \textit{vim} and \textit{emacs}, but we will refrain from using these in our demo because there is some overhead to learn these tools. We can also use the command line to open up one of our favorite gui\footnote{gui stands for \textbf{G}raphical \textbf{U}ser \textbf{I}nterface} text editors with commands like: 
+\subsection{Text Editors}
+There are several pure command line editors like \textit{vim} and \textit{emacs}, but we will refrain from using these in our demo because there is some overhead to learn these tools. Instead we can use the command line to open up one of our favorite gui\footnote{gui stands for \textbf{G}raphical \textbf{U}ser \textbf{I}nterface} text editors with commands like: 
 \commandline{gedit myfile}
+\begin{center}
+    \textbf{\textit{or}}
+\end{center}
 \commandline{atom myfile}
 Note that when you run one of the above commands it may open a gui window and you will no longer be able to use the command line until you close the newly opened window. You can get around this by doing the following:
 \commandline{gedit myfile \&}
@@ -378,8 +338,8 @@ This will open gedit (or whatever program you choose) in the $background$ and al
     \begin{enumerate}
         \item Open up a gui text editor, or command line editor if you have experience.
         \item Write some characters in the file.
-        \item Save your changes (writing your data to the disk).
-        \item Find out how large your file is in bytes (do you remeber what command to use?).
+        \item Save your changes (i.e. write your data to the disk).
+        \item Find out how large your file is in bytes. Do you remember what command you could use?
     \end{enumerate}
     
 \end{ex}
@@ -387,21 +347,21 @@ This will open gedit (or whatever program you choose) in the $background$ and al
 \section{More on Files}
 
 \subsection{Reading Files}
-	There are many ways to read files; we will discuss a few now. For starters you can always use a program you use to editing text files with to read a file (for more on this see the Editing Files section). In general though you should use the right tool for the right job and if you don't want to edit a file you should use a viewer such as \textbf{less} or \textbf{more}.
+	There are many ways to read files; we will discuss a few now. For starters you can always use your text editor to read a file. If you don't want to edit a file you could use a viewer such as \textbf{less} or \textbf{more} instead.
 	For example, to open the file $myfile$ with \textbf{less} type:
 \commandline{less myfile}
 This will open the file full screen in the command line and allow you to move up and down the document line by line. You can do this by pressing the up and down arrow keys. For those familar with Vim you can use Vim's way of moving around in less (which is why less is so cool!). Also some terminals are set up so you can use the scroll wheel on your mouse. 
 
 
-To use \textbf{more} to open the file $myfile$ type:
+\textbf{more} is used in a similar fashion:
 \commandline{more myfile}
-This program is more primitive and is mostly used for reading though large chunks at a time instead of normal viewing. Hit space to move to the next page until you are done or press q to \textbf{q}uit at any time.\footnote{Pressing q to quit is also used in less.} So yes,  \textbf{less} actually has more functionality than the command \textbf{more}.
+This program is more primitive and only moves one page at a time. Hit space to move to the next page until you are done or press \textbf{q} to quit at any time.\footnote{Pressing \textbf{q} to quit is also used in the command \textbf{less}.} So yes,  \textbf{less} actually has \textit{more} functionality than the command \textbf{more}. 
 
 Some other ways of viewing include \textbf{cat}, \textbf{head}, and \textbf{tail}. cat's main purpose is for con\textbf{cat}ination but it can also be used to dump a file to the screen by typing:
 \commandline{cat myfile}
 This is great for small files but horrible for larger ones. \textbf{head} and \textbf{tail} will grab the first or last 10 lines, respectively.\footnote{These commands has several other options as well allowing you to grab a variable number of lines. See \textbf{man 1 tail}}.\\
 
-\begin{ex} Try running these commands on the file ``numbers"
+\begin{ex} Try running these commands on the file ``numbers" in the directory ``demo"
 \commandline{cat numbers}
 \commandline{more numbers}
 \commandline{less numbers}
@@ -413,12 +373,12 @@ We can \textbf{c}o\textbf{p}y a file by \textbf{cp} command which has the follow
 \commandline{cp sourceFileName destinationFileName}
 For example:
 \commandline{cp myfile myfile.backup}
-will make it so the file name $myfile$ in my current working directory is copied into a new file called $myfile.backup$ which will also be in my current directory.
+will make it so the file name $myfile$ in my current working directory is copied into a new file called $myfile.backup$ which will also be in my current working directory.
 
 \subsection{Moving a File}
 We can \textbf{m}o\textbf{v}e a file by the \textbf{mv} command which has the following generic form:
 \commandline{mv sourceFileName distinationFileName}
-
+\vspace{0.3cm}
 \begin{ex} Copy a file, then move the copy elsewhere.
     \begin{enumerate}
         \item Create a file using \textbf{touch}.
@@ -464,14 +424,15 @@ There is no rename command since the effect of such a command can already be ach
 % \end{ex}
 
 \section{Manuals}
-In this section we will learn how to learn new things about the command line without ever having to leave it! This includes how to learn more about commands we already know and how to find new commands.
+In this section we will figure out how to learn new things about the command line without ever having to leave it! This includes how to learn more about commands we already know and how to find new commands.
 \subsection{ A help message}
 Many Unix programs will use one or both of the following to give you a brief help message:
 \commandline{program\_name -h}
 or
 \commandline{program\_name \ \\-\\-help}
 This is optional so some programs will have both, one, or neither of the above arguments. Also some programs that have both will have different messages for each. Note that some programs will also use -h to do something other then give a help message.
-begin{ex}
+
+
 Try them with \textbf{vim}:
 	\commandline{vim -h}
 	\commandline{vim \ \\-\\-help}
@@ -484,7 +445,7 @@ The \textbf{man} program gives you \textbf{man}ual pages about what every progra
 For example:
 \commandline{man cat}
 will give you information on the program \textbf{cat} which we have seen a few times now. You can even learn more about \textbf{man} by running the following:
-\commandline{man}
+\commandline{man man}
 The interface for reading these pages is the same as \textbf{less} so this should feel familiar by now. For those who use C note that you the system calls and libc functions have manual pages in section 2 and 3 of the man pages! 
 There are nine sections to the man pages and sometimes two things with the same name will exist in different sections. For example:
 \commandline{man printf}
@@ -563,7 +524,7 @@ The user command \textbf{xdg-open} will open a file or URL in the user's preferr
 This will open \url{www.google.com} in your default web browser.
 
 \section{Running Your Programs}
-In this section we will show how to use the command line to run the programs we write. Since no assumptions are made as to how far you are in Western's Computer Science Department's curriculum we will show how to run programs in Python \& Java. All code will be provided so you can follow along without needing to know the language. For each one language we will run the iconic Hello World program.
+In this section we will show how to use the command line to run the programs we write. Since no assumptions are made as to how far you are in Western's Computer Science Department's curriculum we will show how to run programs in Python \& Java. All code will be provided so you can follow along without needing to know the language. For each language we will run the iconic Hello World program.
 \subsection{Python}
 Change your current working directory to \textit{demo/python\_programs}, which should be already created for this demo.
 
@@ -609,51 +570,11 @@ Which, as you might expect, will display the following:
     To see example of how errors will be displayed edit ``HelloWorld.java" to no longer have class on the first line. Recompile with the \textbf{javac} command we just learned. See how the top line that is returned informs us that java was expecting the world class but couldn't find it?
 \end{ex}
 
-% \subsection{C++}
-% As before change to our C++ directory with:
-% \commandline{cd ../C++}
-% With an editor make a file called HelloWorld.cpp with the following content:
-% \begin{verbatimtab}
-%     #include <iostream>
-%     using namespace std;
-    
-%     int main() {
-%         cout << "Hello World!" << endl;
-%     }
-% \end{verbatimtab}
-% C++ is a compiled language which means that we need to first compile it before we can run it. We can compile our new program with the following command:
-% \commandline{g++ HelloWorld.cpp}
-% Any errors will be displayed but if you copy my lines exactly you will see nothing except for a new prompt on the screen. List the contents of your current working directory to see a new file called ``a.out", this is the file which is our new program. We can run it with the following:
-% \commandline{./a.out}
-% The output should be exactly what you expect. 
-% \begin{ex}
-%     C++ defaults to compiling our program into a file called a.out but we can specify what we would like our program called with the following option to g++:
-%     \commandline{g++ ourprogramfile.cpp -o whatIWantMyProgramToBeCalled}
-%     Use this to compile ``HelloWorld.c" into a file called ``HelloWorld". How can we run this new program?
-% \end{ex}
-
-% \subsection{C}
-% As before change to our C directory with:
-% \commandline{cd ../C}
-% With an editor make a file called ``HelloWorld.c" with the following contents:
-% \begin{verbatimtab}
-%     #include <stdio.h>
-    
-%     int main() {
-%         printf("Hello World!\n");
-%     }
-% \end{verbatimtab}
-% We can compile our C program with the compiler gcc using the following command:
-% \commandline{gcc HelloWorld.c}
-% This has very similar semantics to g++ including the same way it compiles to a file called a.out and how you can change this in the same way we learned in the C++ exercise. This is because they are essentially the same program. We again can run our new C program with the following:
-% \commandline{./a.out}
-% And that is the basics of how to run programs using the command line. There are many extra options to these commands but this minimum will allow you to make most programs.
-
 \newpage
 \section{More Shortcuts}
 There are a number of shortcuts that save typing time and allow you to remember less. We will discuss a few now.
 \subsection{Reuse previous commands}
-You will notice the more you use the command line that there the same sequence of commands are used a lot. For example when you are writing a program you will edit it using nano, vim, or emacs and then compile or run the program. You will then notice a bug and open the editor again and then test your changes by compiling or running your program again. Such as:
+You will notice the more you use the command line that there the same sequence of commands are used a lot. For example when you are writing a program you will edit it using some text editor, and then compile or run the program. You will then notice a bug and open the editor again and then test your changes by compiling or running your program again. Such as:
 \commandline{vim HelloWorld.c}
 \commandline{gcc HelloWorld.c}
 \commandline{./a.out}
@@ -675,7 +596,7 @@ since it was the last command we entered that started with a ``v''. Sometimes yo
 \commandline{view HelloWorld.c}
 \commandline{!v}
 
-In this situation, the command \textbf{view HelloWorld.c} would be executed instead of \textbf{vim HelloWorld.c}.\footnote{\textbf{view} opens files in vim in read-only mode. See \textbf{man vim} for more information}
+In this situation, the command \textbf{view HelloWorld.c} would be executed instead of \textbf{vim HelloWorld.c}.\footnote{\textbf{view} opens files in \textbf{vim} in read-only mode. See \textbf{man view} or \textbf{man vim} for more information}
 
 \subsection{reverse search}
 Another way to go back to previously entered commands is by pressing ``\textbf{Ctrl + r}" while at the command line prompt.  This will search for any past commands you've entered matching the string that you type in.  \\
@@ -688,26 +609,13 @@ Try it out: Press ``Ctrl+r" and then start typing "cd" to see the last change di
 \end{ex}
 
 \subsection{Running commands sequentially in one line}
-Say I wanted to navigate to a particular directory where I store my C files and open a file in a text editor. I would need to use \textbf{cd} to change my directory and then another program to open the file I want. We can do this all in one line using the \textbf{;} token!
+Say I wanted to navigate to a particular directory where I store my C files and open a file in a text editor. I would need to use the command \textbf{cd} to change my current working directory followed by another command to open the file I want. We can do this all in one line using the \textbf{;} token!
 \commandline{cd demo/c\_programs ; vim HelloWorld.c}
 
 Now when I'm done editing the file I'll be right where I want to be to compile and run the executable. Pretty neat.
 
 
-% \section{Remote access through SSH}
-%     You can access another Unix machine from the command line with the program \textbf{ssh}. Suppose you want to work on the files for a project that you started in Westerns CS lab computer from home using your Mac. You can run the following:
-%     \commandline{ssh -p 922 username@linux.cs.wwu.edu}
-%     Where you replace ``username" with your username. The first time you use it from a computer you will need to type ``yes". Then you will need to enter your password for the machine and useraccount your trying to log into. You will then be logged into a linux computer from the school.
-    
-%     \textbf{Note} that this implies that although you may think you are the only one using a computer at school there could be many other students who are also using it through ssh.
-    
-%     There is also programs such as $putty$ which allows you to use a Windows computer to access a Unix machine. 
-%     To learn more about accessing the lab machines at Western follow this url:\url{https://support.cs.wwu.edu/index.php/Accessing_Linux_with_SSH}
-    
-%     \textbf{Note} the section on \textbf{scp} which allows you to use ssh to grab files from a remote computer. This can be useful if you need to grab a file from the linux machines on campus but you would like to use your own computer to work with it.
-
-
-                        %%% START ADVANCED TOPICS HERE! %%%
+        %%% START ADVANCED TOPICS HERE! %%%
 
 \newpage
 
@@ -716,10 +624,13 @@ Now when I'm done editing the file I'll be right where I want to be to compile a
 \section{Redirection and Pipes}
     Now that we have a solid repertoire of commands we are ready to learn about redirection and pipes. Redirection allows us to change (or \textit{redirect}) the input and output files to any program. Pipes allow us to chain programs together. This is where we start to see the true power of using the command line. First let's learn a little bit about file descriptors. 
     
-    \subsection{File Descriptors: stdin, stdout, stderr}
-        During the course of this workshop we have referred to programs having ``their default" being printing to the console or getting input from the keyboard. This has been an oversimplification which we need to now elaborate on. 
+    \subsection{Files in UNIX}
+    During the course of this workshop we have referred to programs that have their default modes set to print to the console or get input from the keyboard. This has been an oversimplification which we need to now elaborate on.
         
-        In a UNIX environment, each file open in each process is represented by a non-negative integer known as a \textit{file descriptor}. There are three file descriptors open by default for each process, 0, 1, and 2, which correspond to \textbf{stdin}, \textbf{stdout}, and \textbf{stderr}, respectively. By default, stdout and stderr are set to write to the console and stdin is set to read input from the keyboard by default. Figure 2.1 illustrate this concept:
+    In a UNIX or UNIX-like environment, everything is a file.\footnote{Well, it might be more accurate to say that everything is a file descriptor... \url{https://en.wikipedia.org/wiki/File_descriptor}} This includes a wide range of input/output resources including keyboards, printers, and even some channels for inter-process and network communications. This is handy because it allows the same set of tools, utilities, and APIs to be used on a wide variety of resources.
+    
+    \subsection{File Descriptors: stdin, stdout, stderr}
+        Each open file in a process is represented by a non-negative integer known as a \textit{file descriptor}. There are three file descriptors open by default for each process, 0, 1, and 2, which correspond to \textbf{stdin}, \textbf{stdout}, and \textbf{stderr}, respectively. By default, stdout and stderr are set to write to the console, and stdin is set to read input from the keyboard. Figure 2.1 illustrates this concept:
         
         \begin{figure}[H]
         	\centering
@@ -729,7 +640,7 @@ Now when I'm done editing the file I'll be right where I want to be to compile a
         \end{figure}        
      
     \subsection{Redirection}
-        File redirection is telling the shell to set stdin, stdout, or stderr to something other than the defaults (i.e. some other file). This is achieved by using the `$>$' and `$<$' characters as part of your command. For example, a common use would be to redirect a program's output to a file when the program typically writes to stdout:
+        File redirection is telling the shell to set stdin, stdout, or stderr to something other than their default (i.e. some other file). This is achieved by using the `$>$' and `$<$' characters as part of your command. For example, a common use would be to redirect a program's output to a file when the program typically writes to stdout:
         \commandline{java HelloWold.java $>$ output.txt}
         \vspace{0.3cm}
         Here is a table with some more examples:
@@ -755,7 +666,7 @@ Now when I'm done editing the file I'll be right where I want to be to compile a
     \end{ex}
 
 \section{grep}
-\textbf{grep} is used to find occurrences of anything that matches a given regular expression in a file. A regular expression, put simply, is a sequence of characters that define a search pattern. Wildcard expansion, for example, uses a regular expression to match file names.
+\textbf{grep} is used to find occurrences of anything that matches a given regular expression in a file. A regular expression, put simply, is a sequence of characters that define a search pattern. Wildcard expansion\footnote{An example of wildcard expansion can be seen on page 12}, for example, uses a regular expression to match file names.
 
 The general form of \textbf{grep} is:
     \commandline{grep options regularExpression file1 file2 ...}
@@ -802,7 +713,7 @@ Suppose I wanted to view the file listings of a directory, but the directory hap
 \vspace{0.15}
 This is very helpful when using shells with no scrolling feature.
 
-An extremely powerful command to use with pipes is one we just learn about, \textbf{grep}. We pipe the output of our programs into grep and search for patterns. Say I had written a command awhile back that was rather long (e.g. using \textbf{ssh}\footnote{We will be doing another workshop on this tool and other related tools, but if you're eager to try it out see \textbf{man 1 ssh}.} to log into another machine remotely). To avoid having to type it in again, and potentially make mistakes in the process, we can use bash's builtin command\footnote{Builtin commands are executed directly in the shell itself, instead of an external executable program.} \textbf{history}. By default this command will output entries in our shell's history file, which contains several commands we had previously entered.
+An extremely powerful command to use with pipes is one we just learned about, \textbf{grep}. We can pipe the output of our programs into grep and search for patterns. Say I had written a command awhile back that was rather long (e.g. using \textbf{ssh}\footnote{We will be doing another workshop on this tool and other related tools, but if you're eager to try it out see \textbf{man 1 ssh}.} to log into another machine remotely). To avoid having to type it in again, and potentially make mistakes in the process, we can use bash's builtin command\footnote{Builtin commands are executed directly in the shell itself, instead of an external executable program.} \textbf{history}. By default this command will output entries in our shell's history file, which contains several commands we had previously entered.
 \commandline{history \textbar \ grep [search expression]}
 \vspace{0.15}
 
@@ -817,7 +728,20 @@ You can print out all of your aliases using the \textbf{-p} option. You can also
 \subsection{Creating a .bashrc file}
 Navigate to your home directory and create a new file \textbf{.bashrc}. Now open up a text editor and start writing out the commands you want to run when the shell boots up.
 
-We will take a look at an example .bashrc file to get you started, but look online for more example and useful commands to include in your file.
+\subsection{Configuring your .bashrc file}
+This is where you can be as creative as you would like. If you want to create a bunch of aliases for long/tedious command sequences, that's a great start. If you want to change the color of your prompt, or display a calendar when you boot up bash, this is possible as well. We will take a look at an example .bashrc file to get you started, but there are all sorts of interesting ways you can configure your .bashrc file to enhance your command-line interface. Here are a few links that you may find helpful:
+
+example .bashrc files:\\ \url{http://crunchbang.org/forums/viewtopic.php?id=1093}\\ 
+\url{http://tldp.org/LDP/abs/html/sample-bashrc.html}
+
+
+Tutorials on bash scripting:\\ \url{http://ryanstutorials.net/bash-scripting-tutorial/bash-script.php}\\
+\url{http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html}
+
+
+
+
+
 
 \newpage
 
