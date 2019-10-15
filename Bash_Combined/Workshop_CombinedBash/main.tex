@@ -55,9 +55,11 @@
     \begin{center}
         \large{\textbf{Version 1.0 from 4/24/16}}
     \end{center}
-    \large{\textbf{Authors:} Brandon Tarquinio(BT), Robin Cosbey(RC)  Ted Weber (TW), Sarah Gunderson (SG), Serena Bowen (SB)}
-  \vhEntry{1.0}{4/24/16}{TW}{created}
+    \large{\textbf{Authors:} Brandon Tarquinio(BT), Robin Cosbey(RC)  Ted Weber (TW), Sarah Gunderson (SG), Serena Bowen (SB), Josh Myers-Dean (JMD)}
+  \vhEntry{0.1}{9/27/15}{BT, RC}{created}
+  \vhEntry{1.0}{4/24/16}{TW}{combined Bash 1 and Bash 2}
   \vhEntry{1.1}{4/27/16}{TW, SG, SB}{revisions}
+  \vhEntry{1.2}{10/14/19}{RC, JMD}{revisions}
 \end{versionhistory}
                                                     %Workshop 1
 \chapter{The Basics}
@@ -70,7 +72,7 @@ In general, a shell is a user interface for accessing the operating system's ser
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{kernel.png}
+	\includegraphics[scale=0.4]{kernel.png}
 	\caption{The shell sits above the kernel, which is generally the lowest-level, or "inner-most" component of most operating systems.} 
 \end{figure}
 
@@ -130,6 +132,7 @@ A user's \textit{home directory} is the default current working directory when y
 	What did you find? Note that ``$\sim$", the tilde symbol, is normally located near the top-left of your keyboard. Remember ``$\sim$", since it will be used a lot as a shortcut to your home directory.
 \end{ex}
 
+\newpage
 \subsection{Listing the contents of a Directory}
 To \textbf{l}i\textbf{s}t all the files in your current working directory enter:
 	\commandline{ls}
@@ -172,7 +175,7 @@ There is a lot more information here! So what does it all mean? Lets use the fil
 \end{enumerate}
 
 We won't go into detail on the specific meaning of these fields in this workshop, but there is a link in the footnotes for more information.\footnote{Advanced bash workshop: \url{https://github.com/wwu-mentors/bash/tree/master/Bash_II}}
-	
+
 \subsection{Changing your Current Working Directory}
  Your \textit{current working directory} is the directory your process is currently associated with (i.e. the directory your are currently operating inside of). We can \textbf{c}hange the \textbf{d}irectory with \textbf{cd} which has the following form:
 
@@ -194,11 +197,22 @@ Lastly, to move back one directory in the directory tree enter this command:
 \begin{ex}
 	Use \textbf{cd}, \textbf{pwd}, \textbf{ls} to explore the directory tree a bit. Becoming familiar and quick with these commands is essential to becoming efficient with the command line. \textbf{cd} and \textbf{ls} are easily the two most used commands in Unix-like shells.
 \end{ex}
+	
+\subsection{Making a Directory}
+Now that we understand the directory tree and how to move around it we are ready to learn how to add to it. The general form of the command to \textbf{m}a\textbf{k}e a \textbf{dir}ectory is:
+\commandline{mkdir newdirname1 newdirname2 ...}
+\begin{ex}
+	Run the following sequence of commands. Before the second and third calls to \textbf{ls} think about what you would expect to see:
+\commandline{mkdir FirstDir SecondDir}
+\commandline{ls}
+\commandline{mkdir FirstDir/Foo FirstDir/Foo2}
+\commandline{ls FirstDir}
+\textbf{clear} is a useful command that clears the screen.
+\end{ex}	
 
 \subsection{Relative vs Absolute Path Names}
 We need to learn one more important concept about UNIX files and directories before moving on. \\
 Suppose we are in the directory \textit{/home} in our directory tree and we wanted to list the contents of the jason directory. We can do this in two ways:
-\newpage
 \commandline{ls jason}
 \begin{center}
     \textbf{\textit{or}}
@@ -233,19 +247,6 @@ Take a moment to download a few files for this workshop from our GitHub. Each la
 Then enter the following command to change your current working directory to the directory pertaining to our demo.
 \commandline{cd bash/Bash\_Combined/demo}
 The files you download from GitHub also include a couple .pdf documents with the write-ups for previous bash workshops run by the CS mentors. Take a look at those files if you are curious!
-
-\subsection{Making a Directory}
-Now that we understand the directory tree and how to move around it we are ready to learn how to add to it. The general form of the command to \textbf{m}a\textbf{k}e a \textbf{dir}ectory is:
-\commandline{mkdir newdirname1 newdirname2 ...}
-\begin{ex}
-	Run the following sequence of commands. Before the second and third calls to \textbf{ls} think about what you would expect to see:
-\commandline{ls}
-\commandline{mkdir FirstDir SecondDir}
-\commandline{ls}
-\commandline{mkdir FirstDir/Foo FirstDir/Foo2}
-\commandline{ls FirstDir}
-\textbf{clear} is a useful command that clears the screen.
-\end{ex}
 
 \subsection{Creating a File}
 
@@ -282,6 +283,10 @@ If you want to play it safe, use the \textbf{-i} flag and a prompt will come up 
 Is your terminal covered in lines of code and difficult to determine where one previous command ends and another begins? Typing ``clear" into the terminal will wipe away all of the old commands (command shown below).
 \commandline{clear}
 It is possible to refer back to those deleted commands by scrolling up in the terminal.
+
+\subsection{\&\&}
+If there are two commands to be run, separating them with `\&\&' will run both commands. The second command will only be run if the first is able to be run.
+\commandline{cd dirName \&\& clear}
 
 \subsection{ctrl ($\wedge$)}
 Sometimes within bash ctrl will be denoted by `` $\wedge$ ". Ctrl is included with several commands, one of the more relatable being ctrl-C. This will terminate the process. 
